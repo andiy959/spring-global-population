@@ -15,7 +15,7 @@ public class Country {
     private String code;
     private String name;
     private String continent;
-    private String regionS;
+    private String region;
     private long population;
     private String capital;
 
@@ -51,14 +51,6 @@ public class Country {
         this.continent = continent;
     }
 
-    public String getRegionS() {
-        return regionS;
-    }
-
-    public void setRegionS(String regionS) {
-        this.regionS = regionS;
-    }
-
     public String getCapital() {
         return capital;
     }
@@ -73,6 +65,14 @@ public class Country {
 
     public void setPopulation(long population) {
         this.population = population;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
     }
 
 }

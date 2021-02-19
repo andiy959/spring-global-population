@@ -10,6 +10,7 @@ public class City {
     private String name;
     private String country;
     private String district;
+    private boolean capital;
     private long population;
 
     public String getId() {
@@ -50,6 +51,14 @@ public class City {
 
     public void setPopulation(long population) {
         this.population = population;
+    }
+
+    public boolean isCapital() {
+        return capital;
+    }
+
+    public void setCapital(boolean capital) {
+        this.capital = capital;
     }
 
 }
