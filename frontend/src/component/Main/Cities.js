@@ -23,6 +23,7 @@ const Cities = ({ setCity }) => {
       country: country,
       continent: continent,
       top: n,
+      region: region,
     },
   };
 
@@ -240,6 +241,132 @@ const Cities = ({ setCity }) => {
             value={continent}
             onChange={(e) => setstate({ ...state, continent: e.target.value })}
             placeholder="Continent"
+            type="text"
+            class="validate"
+          />
+        </div>
+        <div class="input-field">
+          <input
+            value={n}
+            onChange={(e) => setstate({ ...state, n: e.target.value })}
+            placeholder="n"
+            type="number"
+            class="validate"
+          />
+        </div>
+      </div>
+      <div
+        onClick={(e) => {
+          if (region !== "")
+            axios.get(`${url}/capital/region`, config).then((res) => {
+              setCity(res.data);
+              history.push("/city");
+            });
+        }}
+        className="card-panel"
+      >
+        <h5>Capital Cities in a Region</h5>
+        <div class="input-field">
+          <input
+            value={region}
+            onChange={(e) => setstate({ ...state, region: e.target.value })}
+            placeholder="Continent"
+            type="text"
+            class="validate"
+          />
+        </div>
+      </div>
+
+      <div
+        onClick={(e) => {
+          if (region !== "")
+            axios.get(`${url}/capital/region/top`, config).then((res) => {
+              setCity(res.data);
+              history.push("/city");
+            });
+        }}
+        className="card-panel"
+      >
+        <h5>Top Capital Cities in a Region</h5>
+        <div class="input-field">
+          <input
+            value={region}
+            onChange={(e) => setstate({ ...state, region: e.target.value })}
+            placeholder="Region"
+            type="text"
+            class="validate"
+          />
+        </div>
+        <div class="input-field">
+          <input
+            value={n}
+            onChange={(e) => setstate({ ...state, n: e.target.value })}
+            placeholder="n"
+            type="number"
+            class="validate"
+          />
+        </div>
+      </div>
+
+      <div
+        onClick={(e) => {
+          if (region !== "")
+            axios.get(`${url}/city/region`, config).then((res) => {
+              setCity(res.data);
+              history.push("/city");
+            });
+        }}
+        className="card-panel"
+      >
+        <h5> Cities in a Region</h5>
+        <div class="input-field">
+          <input
+            value={region}
+            onChange={(e) => setstate({ ...state, region: e.target.value })}
+            placeholder="region"
+            type="text"
+            class="validate"
+          />
+        </div>
+      </div>
+      <div
+        onClick={(e) => {
+          if (region !== "")
+            axios.get(`${url}/country/region`, config).then((res) => {
+              setCity(res.data);
+              history.push("/city");
+            });
+        }}
+        className="card-panel"
+      >
+        <h5> Countries in a Region</h5>
+        <div class="input-field">
+          <input
+            value={region}
+            onChange={(e) => setstate({ ...state, region: e.target.value })}
+            placeholder="region"
+            type="text"
+            class="validate"
+          />
+        </div>
+      </div>
+
+      <div
+        onClick={(e) => {
+          if (region !== "")
+            axios.get(`${url}/country/region/top`, config).then((res) => {
+              setCity(res.data);
+              history.push("/city");
+            });
+        }}
+        className="card-panel"
+      >
+        <h5>Top Countries in a Region</h5>
+        <div class="input-field">
+          <input
+            value={region}
+            onChange={(e) => setstate({ ...state, region: e.target.value })}
+            placeholder="Region"
             type="text"
             class="validate"
           />

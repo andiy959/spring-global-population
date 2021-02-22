@@ -10,6 +10,7 @@ import Main from "./component/Main/Main";
 import Cities from "./component/Main/Cities";
 import City from "./component/City/City";
 import Country from "./component/Country/Country";
+import Region from "./component/Region/Region";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Switch>
                 <Route exact path="/city" component={City} />
                 <Route exact path="/country" component={Country} />
+                <Route exact path="/region" component={Region} />
               </Switch>
             </Fragment>
           </Router>
