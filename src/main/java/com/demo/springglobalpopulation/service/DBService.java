@@ -39,6 +39,7 @@ public class DBService {
     public Map<String, Long> getContinentPopulation() {
 
         Map<String, Long> pop = countryRepo.findAll().stream()
+
                 .collect(Collectors.groupingBy(Country::getContinent, Collectors.summingLong(Country::getPopulation)));
 
         return pop;
@@ -101,7 +102,7 @@ public class DBService {
         List<City> cities = new ArrayList<>();
         countryRepo.findAllByContinent(continent, Sort.unsorted())
                 .forEach(c -> cities.addAll(cityRepo.findAllByCountry(c.getName())));
-        cities.sort(Comparator.comparingLong(City::getPopulation));
+        cities.sort(Comparator.comparingLong(City::getPopulation).reversed());
 
         return cities;
 
