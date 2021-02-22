@@ -23,13 +23,13 @@
 | 19  | All the capital cities in a region organised by largest to smallest.                                  | yes | ![task 1](/screenshots/task19.png) |
 | 20  | The top N populated capital cities in the world where N is provided by the user.                      | yes | ![task 1](/screenshots/task20.png) |
 | 21  | The top N populated capital cities in a continent where N is provided by the user.                    | yes | ![task 1](/screenshots/task21.png) |
-| 22  | The top N populated capital cities in a region where N is provided by the user.                       | yes | ![task 1](/screenshots/task1.png)  |
+| 22  | The top N populated capital cities in a region where N is provided by the user.                       | yes | ![task 1](/screenshots/task22.png) |
 | 23  | The population of people, people living in cities, and people not living in cities in each continent. | no  |                                    |
 | 24  | The population of people, people living in cities, and people not living in cities in each region.    | no  |                                    |
-| 25  | The population of people, people living in cities, and people not living in cities in each country.   | yes | ![task 1](/screenshots/task1.png)  |
+| 25  | The population of people, people living in cities, and people not living in cities in each country.   | no  |                                    |
 | 26  | The population of the world.                                                                          | yes | ![task 1](/screenshots/task26.png) |
 | 27  | The population of a continent.                                                                        | yes | ![task 1](/screenshots/task27.png) |
 | 28  | The population of a region.                                                                           | yes | ![task 1](/screenshots/task28.png) |
 | 29  | The population of a country.                                                                          | yes | ![task 1](/screenshots/task29.png) |
-| 30  | The population of a district.                                                                         | yes | ![task 1](/screenshots/task30.png) |
+| 30  | The population of a district.                                                                         | yes |                                    |
 | 31  | The population of a city.                                                                             | yes | ![task 1](/screenshots/task31.png) |
