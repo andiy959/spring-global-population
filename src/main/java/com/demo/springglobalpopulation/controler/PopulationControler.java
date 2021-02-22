@@ -1,6 +1,7 @@
 package com.demo.springglobalpopulation.controler;
 
 import java.util.List;
+import java.util.Map;
 
 import com.demo.springglobalpopulation.domain.City;
 import com.demo.springglobalpopulation.domain.Country;
@@ -21,6 +22,51 @@ public class PopulationControler {
 
     @Autowired
     private DBService dbService;
+
+    @GetMapping("world")
+
+    public long getWorldPopulation() {
+        return dbService.getWorldPopulation();
+    }
+
+    @GetMapping("capital/region")
+
+    public List<City> getCapitalCityByRegion(@RequestParam String region) {
+        return dbService.getCapitalCityByRegion(region);
+
+    }
+
+    @GetMapping("capital/region/top")
+    public List<City> topCitiesByRegion(@RequestParam String region, @RequestParam int top) {
+        return dbService.topCitiesByRegion(region, top);
+    }
+
+    @GetMapping("city/region")
+    public List<City> getCityByRegion(@RequestParam String region) {
+        return dbService.getCityByRegion(region);
+    }
+
+    @GetMapping("country/region/top")
+
+    public List<Country> topCountryByRegion(@RequestParam String region, @RequestParam int top) {
+        return dbService.topCountryByRegion(region, top);
+    }
+
+    @GetMapping("country/region")
+
+    public List<Country> getCountrieByRegion(@RequestParam String region) {
+        return dbService.getCountrieByRegion(region);
+    }
+
+    @GetMapping("continents")
+    public Map<String, Long> getContinentsPopulation() {
+        return dbService.getContinentPopulation();
+    }
+
+    @GetMapping("regions")
+    public Map<String, Long> getRegionsPopulation() {
+        return dbService.getRegionPopulation();
+    }
 
     @GetMapping("country/all")
 

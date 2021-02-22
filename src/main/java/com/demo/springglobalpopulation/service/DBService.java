@@ -3,6 +3,8 @@ package com.demo.springglobalpopulation.service;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.demo.springglobalpopulation.domain.City;
@@ -26,6 +28,48 @@ public class DBService {
     private CityRepo cityRepo;
     @Autowired
     private CountryRepo countryRepo;
+
+    public Map<String, Long> getRegionPopulation() {
+        Map<String, Long> pop = countryRepo.findAll().stream()
+                .collect(Collectors.groupingBy(Country::getRegion, Collectors.summingLong(Country::getPopulation)));
+
+        return pop;
+    }
+
+    public Map<String, Long> getContinentPopulation() {
+
+        Map<String, Long> pop = countryRepo.findAll().stream()
+                .collect(Collectors.groupingBy(Country::getContinent, Collectors.summingLong(Country::getPopulation)));
+
+        return pop;
+    }
+
+    public long getWorldPopulation() {
+        return countryRepo.findAll().stream().map(Country::getPopulation).reduce(0l, (a, b) -> a + b);
+    }
+
+    public List<City> getCapitalCityByRegion(String region) {
+        return getCityByRegion(region).stream().filter(City::isCapital).collect(Collectors.toList());
+
+    }
+
+    public List<City> topCitiesByRegion(String region, int limit) {
+        return getCityByRegion(region).stream().limit(limit).collect(Collectors.toList());
+    }
+
+    public List<City> getCityByRegion(String region) {
+        return cityRepo.findAllByRegion(region, Sort.by("population").descending());
+
+    }
+
+    public List<Country> topCountryByRegion(String region, int limit) {
+        return getCountrieByRegion(region).stream().limit(limit).collect(Collectors.toList());
+    }
+
+    public List<Country> getCountrieByRegion(String region) {
+        return countryRepo.findAllByRegion(region, Sort.by("population").descending());
+
+    }
 
     public List<Country> getAllCountries() {
         return countryRepo.findAll(Sort.by("population").descending());

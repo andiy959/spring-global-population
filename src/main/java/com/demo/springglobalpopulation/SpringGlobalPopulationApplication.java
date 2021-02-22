@@ -2,6 +2,7 @@ package com.demo.springglobalpopulation;
 
 import com.demo.springglobalpopulation.repo.CityRepo;
 import com.demo.springglobalpopulation.repo.CountryRepo;
+import com.demo.springglobalpopulation.repo.RegionRepo;
 import com.demo.springglobalpopulation.service.DataLoaderService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,10 @@ public class SpringGlobalPopulationApplication implements ApplicationRunner {
 	@Autowired
 	private CityRepo cityRepo;
 	@Autowired
-	CountryRepo countryRepo;
+	private CountryRepo countryRepo;
+
+	@Autowired
+	private RegionRepo regionRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringGlobalPopulationApplication.class, args);
@@ -27,12 +31,11 @@ public class SpringGlobalPopulationApplication implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		// TODO Auto-generated method stub
+		dataLoaderService.loadRegionData();
+		dataLoaderService.loadCountryData();
 		dataLoaderService.loadCityData();
 
 		System.out.println(cityRepo.count());
-
-		dataLoaderService.loadCountryData();
 
 		System.out.println(countryRepo.count());
 

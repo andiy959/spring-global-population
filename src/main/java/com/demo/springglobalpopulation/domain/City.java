@@ -9,7 +9,9 @@ public class City {
     private String id;
     private String name;
     private String country;
+    private String continent;
     private String district;
+    private String region;
     private boolean capital;
     private long population;
 
@@ -59,6 +61,22 @@ public class City {
 
     public void setCapital(boolean capital) {
         this.capital = capital;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public String getContinent() {
+        return continent;
+    }
+
+    public void setContinent(String continent) {
+        this.continent = continent;
     }
 
 }
