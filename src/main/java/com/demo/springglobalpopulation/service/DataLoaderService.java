@@ -18,7 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * DataLoaderService
+ * DataLoaderService this class load the data for cities ,country and regions
+ * from the file system to H2 embeded database
  */
 @Service
 public class DataLoaderService {

@@ -36,7 +36,7 @@ const Main = ({ setCountry, setRegion }) => {
   if (!flag)
     axios
       .get(url + "/world")
-      .then((res) => setstate({ ...state, world: res.data }));
+      .then((res) => setstate({ ...state, world: res.data, flag: true }));
 
   return (
     <div className="main">
@@ -112,7 +112,7 @@ const Main = ({ setCountry, setRegion }) => {
         <h5>Countries in a Region</h5>
         <input
           value={region}
-          onChange={(e) => setstate({ ...state, continent: e.target.value })}
+          onChange={(e) => setstate({ ...state, region: e.target.value })}
           placeholder="Region"
           type="text"
           class="validate"

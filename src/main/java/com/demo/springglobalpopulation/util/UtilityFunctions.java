@@ -2,6 +2,10 @@ package com.demo.springglobalpopulation.util;
 
 import java.util.Random;
 
+/**
+ * the class generates a ramdom string used as ids
+ */
+
 public class UtilityFunctions {
     public static String getRandomString() {
         String randomString = "";

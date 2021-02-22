@@ -21,9 +21,6 @@ public class SpringGlobalPopulationApplication implements ApplicationRunner {
 	@Autowired
 	private CountryRepo countryRepo;
 
-	@Autowired
-	private RegionRepo regionRepo;
-
 	public static void main(String[] args) {
 		SpringApplication.run(SpringGlobalPopulationApplication.class, args);
 
