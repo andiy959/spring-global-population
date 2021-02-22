@@ -67,7 +67,8 @@ const Cities = ({ setCity }) => {
         onClick={(e) => {
           if (country !== "")
             axios.get(`${url}/city/country`, config).then((res) => {
-              setCity(res.data);
+              setCity(res.data.reverse());
+
               history.push("/city");
             });
         }}
@@ -270,7 +271,7 @@ const Cities = ({ setCity }) => {
           <input
             value={region}
             onChange={(e) => setstate({ ...state, region: e.target.value })}
-            placeholder="Continent"
+            placeholder="Region"
             type="text"
             class="validate"
           />
@@ -311,27 +312,6 @@ const Cities = ({ setCity }) => {
       <div
         onClick={(e) => {
           if (region !== "")
-            axios.get(`${url}/city/region`, config).then((res) => {
-              setCity(res.data);
-              history.push("/city");
-            });
-        }}
-        className="card-panel"
-      >
-        <h5> Cities in a Region</h5>
-        <div class="input-field">
-          <input
-            value={region}
-            onChange={(e) => setstate({ ...state, region: e.target.value })}
-            placeholder="region"
-            type="text"
-            class="validate"
-          />
-        </div>
-      </div>
-      <div
-        onClick={(e) => {
-          if (region !== "")
             axios.get(`${url}/country/region`, config).then((res) => {
               setCity(res.data);
               history.push("/city");
@@ -339,7 +319,7 @@ const Cities = ({ setCity }) => {
         }}
         className="card-panel"
       >
-        <h5> Countries in a Region</h5>
+        <h5> Cities in a Region</h5>
         <div class="input-field">
           <input
             value={region}

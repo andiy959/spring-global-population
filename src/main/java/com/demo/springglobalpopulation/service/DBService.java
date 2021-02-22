@@ -18,7 +18,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 /**
- * DBService
+ * DBService this class is use to generate the required metrics by the api
  */
 
 @Service
